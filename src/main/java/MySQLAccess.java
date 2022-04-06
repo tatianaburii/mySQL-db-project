@@ -38,6 +38,15 @@ public class MySQLAccess {
             System.out.println("Column: " + i + " " + resultSet.getMetaData().getColumnName(i));
         }
     }
+    public ArrayList<Student> getByName(String name) throws SQLException {
+        ArrayList<Student> students = new ArrayList<>();
+        for (Student student : getAllStudents(resultSet)) {
+            if(student.first_name.equals(name)){
+                students.add(student);
+            }
+        }
+        return students;
+    }
 
     private ArrayList<Student> getAllStudents(ResultSet resultSet) throws SQLException {
         ArrayList<Student> students = new ArrayList<>();
@@ -60,6 +69,7 @@ public class MySQLAccess {
         }
         return students;
     }
+
 
     private void close() {
         try {
