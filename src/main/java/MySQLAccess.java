@@ -16,7 +16,7 @@ public class MySQLAccess {
             resultSet = preparedStatement.executeQuery();
             getAllStudents(resultSet);
             deleteStudent(5);
-            //  statement.execute("insert into  Student (id, first_name, last_name, coming_year) value  (94, 'Ivan', 'Ivanov', 2021)");
+            addStudent(new Student(6,"new", "student", 0));
         } catch (Exception e) {
             throw e;
         } finally {
@@ -38,14 +38,23 @@ public class MySQLAccess {
             System.out.println("Column: " + i + " " + resultSet.getMetaData().getColumnName(i));
         }
     }
+
     public ArrayList<Student> getByName(String name) throws SQLException {
         ArrayList<Student> students = new ArrayList<>();
         for (Student student : getAllStudents(resultSet)) {
-            if(student.first_name.equals(name)){
+            if (student.first_name.equals(name)) {
                 students.add(student);
             }
         }
         return students;
+    }
+
+    public boolean addStudent(Student student) throws SQLException {
+        String str = "insert into  Student (id, first_name, last_name, coming_year) value  (" +student.id + ", '" +
+                student.first_name + "', '" + student.last_name + "', " + student.coming_year + ")";
+        System.out.println(str);
+        statement.execute(str);
+        return true;
     }
 
     private ArrayList<Student> getAllStudents(ResultSet resultSet) throws SQLException {
@@ -76,11 +85,9 @@ public class MySQLAccess {
             if (resultSet != null) {
                 resultSet.close();
             }
-
             if (statement != null) {
                 statement.close();
             }
-
             if (connect != null) {
                 connect.close();
             }
