@@ -7,9 +7,9 @@ public class StudentService {
     private static final String SQL_INSERT = "INSERT INTO Student (id, first_name, last_name, coming_year) VALUES(?,?,?,?)";
     private static final String SQL_DELETE = "DELETE FROM Student WHERE id = ?";
     private static final String SQL_SELECT = "SELECT id, first_name, last_name, coming_year FROM Student";
-    Connection connect;
-    Statement statement;
-    PreparedStatement ps;
+    private Connection connect;
+    private Statement statement;
+    private PreparedStatement ps;
 
     public StudentService() throws SQLException {
         connect = ConnectorDB.getConnection();
