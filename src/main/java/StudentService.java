@@ -8,6 +8,8 @@ public class StudentService {
     private static final String SQL_DELETE = "DELETE FROM Student WHERE id = ?";
     private static final String SQL_SELECT = "SELECT id, first_name, last_name, coming_year FROM Student";
     Connection connect;
+    Statement statement;
+    PreparedStatement ps;
 
     public StudentService() throws SQLException {
         connect = ConnectorDB.getConnection();
@@ -32,7 +34,6 @@ public class StudentService {
     }
 
     public boolean deleteStudent(int id){
-        PreparedStatement ps = null;
         try {
             ps = connect.prepareStatement(SQL_DELETE);
             ps.setInt(1, id);
@@ -59,7 +60,6 @@ public class StudentService {
 
     ArrayList<Student> getAll() {
         ArrayList<Student> students = new ArrayList<>();
-        Statement statement = null;
         try {
             statement = connect.createStatement();
             ResultSet resultSet = statement.executeQuery(SQL_SELECT);
