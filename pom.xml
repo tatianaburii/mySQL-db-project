@@ -20,8 +20,8 @@
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
-               <artifactId>lombok</artifactId>
-                 <version>1.18.22</version>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
