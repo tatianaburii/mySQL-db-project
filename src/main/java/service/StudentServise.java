@@ -9,8 +9,11 @@ public class StudentServise {
     private StudentDao studentDao = new StudentDao();
     public StudentServise(){
     }
-    public Student findStudent(int id){
+    public Student findStudentById(int id){
         return studentDao.findById(id);
+    }
+    public List<Student> findStudentByName(String name){
+        return studentDao.findByName(name);
     }
     public void saveStudent(Student student){
         studentDao.save(student);
