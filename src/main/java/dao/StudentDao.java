@@ -16,7 +16,7 @@ public class StudentDao {
     public List<Student> findByName(String name) {
         List<Student> students = new ArrayList<>();
         for (Student student : findAll()) {
-            if (student.getFirst_name().equals(name)) {
+            if (student.getFirstName().equals(name)) {
                 students.add(student);
             }
         }

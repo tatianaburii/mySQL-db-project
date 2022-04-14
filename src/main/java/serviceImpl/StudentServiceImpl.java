@@ -1,13 +1,15 @@
-package service;
+package serviceImpl;
 
 import dao.StudentDao;
 import entity.Student;
+import service.StudentService;
 
 import java.util.List;
 
-public class StudentServise {
+public class StudentServiceImpl implements StudentService {
     private StudentDao studentDao = new StudentDao();
-    public StudentServise(){
+
+    public StudentServiceImpl(){
     }
     public Student findStudentById(int id){
         return studentDao.findById(id);

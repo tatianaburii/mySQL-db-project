@@ -1,9 +1,8 @@
-import entity.Student;
-import service.StudentServise;
+import serviceImpl.StudentServiceImpl;
 
 public class Main {
     public static void main(String[] args) {
-        StudentServise service = new StudentServise();
+        StudentServiceImpl service = new StudentServiceImpl();
 //        Student student = new Student("James", "Bond", 2022);
 //        Student student1 = new Student("Tetiana", "Burii", 2020);
 //        service.saveStudent(student1);

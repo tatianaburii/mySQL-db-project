@@ -12,27 +12,27 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column(name = "first_name")
-    private String first_name;
-    @Column(name = "last_name")
-    private String last_name;
+    private String firstName;
+    @Column(name = "last_Name")
+    private String lastName;
     @Column(name = "coming_year")
-    private int coming_year;
+    private int comingYear;
 
     public Student(){}
 
     public Student(String first_name, String last_name, int coming_year) {
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.coming_year = coming_year;
+        this.firstName = first_name;
+        this.lastName = last_name;
+        this.comingYear = coming_year;
     }
 
     @Override
     public String toString() {
         return "Student{" +
                 "id=" + id +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
-                ", coming_year=" + coming_year +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", coming_year=" + comingYear +
                 '}';
     }
 }
